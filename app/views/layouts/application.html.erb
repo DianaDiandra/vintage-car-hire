@@ -7,6 +7,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= yield :head %>
 
     <link rel="manifest" href="/manifest.json">
@@ -18,7 +19,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/flashes" %>
     <%= render "shared/navbar" %>
+    <%= yield %>
+<<<<<<< HEAD
+    <%= render "shared/navbar" %>
+=======
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+>>>>>>> master
   </body>
 </html>

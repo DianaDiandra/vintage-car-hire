@@ -1,0 +1,8 @@
+<h1>Vintage Car Hire</h1>
+<% @cars.each do |car| %>
+  <div>
+    <h2><%= car.brand %></h2>
+    <p><%= car.description %></p>
+    <p>Price: $<%= car.price %>/day</p>
+  </div>
+<% end %>
