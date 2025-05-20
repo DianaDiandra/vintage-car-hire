@@ -1,0 +1,16 @@
+<h1>List Your Car</h1>
+<%= form_with model: @car, url: cars_path do |f| %>
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :price %>
+  <%= f.number_field :price, step: 0.01 %>
+
+  <%= f.label :availability %>
+  <%= f.check_box :availability %>
+
+  <%= f.submit "List Car" %>
+end
