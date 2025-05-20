@@ -3,8 +3,13 @@ class CarsController < ApplicationController
   # Line above ensures only logged-in host can create cars
   def index
     @cars = Car.all
-
     # This collects all car records from db and stores in @car
+  end
+
+  def show
+    @car = Car.find(params[:id])
+    @reviews = @car.reviews
+    @review = Review.new
   end
 
   def new
