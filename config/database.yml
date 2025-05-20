@@ -83,3 +83,4 @@ production:
   database: vintage_car_hire_production
   username: vintage_car_hire
   password: <%= ENV["VINTAGE_CAR_HIRE_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
