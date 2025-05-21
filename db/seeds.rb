@@ -27,7 +27,7 @@ cars = [
   {
     brand: "Vintage Mustang",
     description: "Classic American muscle car.",
-    price: 45000.00,
+    price: 450.00,
     availability: true,
     image_url: "https://res.cloudinary.com/di9w8jptl/image/upload/v1747760698/classic-mustang-blue-hero_vwd8uj.jpg",
     filename: "mustang.jpg"
@@ -35,7 +35,7 @@ cars = [
   {
     brand: "Vintage Porsche",
     description: "Classic German sports car.",
-    price: 60000.00,
+    price: 600.00,
     availability: true,
     image_url: "https://res.cloudinary.com/di9w8jptl/image/upload/v1747755712/classic-vintage-car_jz2ohk.jpg",
     filename: "porsche.jpg"
@@ -43,10 +43,26 @@ cars = [
   {
     brand: "Rolls Royce Phantom",
     description: "Elegant luxury vintage car.",
-    price: 120000.00,
-    availability: false,
+    price: 1200.00,
+    availability: true,
     image_url: "https://res.cloudinary.com/di9w8jptl/image/upload/v1747761501/1200px-2019_Rolls-Royce_Phantom_V12_Automatic_6.75_sfvtpl.jpg",
     filename: "rolls_royce.jpg"
+  },
+  {
+    brand: "Vintage Ferrari",
+    description: "Iconic Italian sports car.",
+    price: 800.00,
+    availability: true,
+    image_url: "https://res.cloudinary.com/di9w8jptl/image/upload/v1747832994/2024-ferrari-sf90-xx-stradale-109-654a668fc71a3.jpg_b9dsxm.jpg",
+    filename: "ferrari.jpg"
+  },
+  {
+    brand: "Vintage Lamborghini",
+    description: "Famous Italian supercar.",
+    price: 900.00,
+    availability: true,
+    image_url: "https://res.cloudinary.com/di9w8jptl/image/upload/v1747833178/s2-mobile_a5cjnu.jpg",
+    filename: "lamborghini.jpg"
   }
 ]
 
