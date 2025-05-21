@@ -41,6 +41,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "devise"
 gem "cloudinary", "~> 2.3"
+gem 'faker'
 
 group :development, :test do
   gem "dotenv-rails"
@@ -57,6 +58,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "hotwire-livereload"
 end
 
 group :test do
