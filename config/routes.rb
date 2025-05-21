@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :cars, only: [:index, :new, :create] do
-    resources :bookings, only: [:index, :create, :update]
+    resources :bookings, only: [:index, :new, :create, :edit, :update]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

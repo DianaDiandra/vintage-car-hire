@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_car
 
   def index
@@ -6,24 +7,35 @@ class BookingsController < ApplicationController
    @booking = Booking.new
   end
 
+  def new
+    @booking = @car.bookings.new
+  end
+
   def create
-    @booking = @car.bookings.build(booking_params)
+    @booking = @car.bookings.new(booking_params)
     @booking.user = current_user
     if @booking.save
       redirect_to car_bookings_path(@car), notice: 'Booking added successfully!'
     else
-      @bookings = @car.bookings.where(user: current_user)
-      render :index, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
+   def edit
+    return if @booking.user == current_user
+    redirect_to root_path, alert: "Not authorized!"
+  end
+
   def update
-    @booking = @car.bookings.find(params[:id])
+    if @booking.user != current_user
+      redirect_to root_path, alert: "Not authorized!"
+      return
+    end
+
     if @booking.update(booking_params)
-      redirect_to car_bookings_path(@car), notice: "Booking updated successfully!"
+      redirect_to car_bookings_path(@car), notice: "Booking updated!"
     else
-      @bookings = @car.bookings.where(user: current_user)
-      render :index, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -31,6 +43,10 @@ class BookingsController < ApplicationController
 
   def set_car
     @car = Car.find(params[:car_id])
+  end
+
+  def set_booking
+    @booking = @car.bookings.find(params[:id])
   end
 
   def booking_params

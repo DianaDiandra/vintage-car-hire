@@ -40,11 +40,7 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "devise"
-<<<<<<< HEAD
-ruby "3.3.8"
-=======
 gem "cloudinary"
->>>>>>> 2a3611089d667dd0b75daea7bbe01d99f7882621
 
 group :development, :test do
   gem "dotenv-rails"
