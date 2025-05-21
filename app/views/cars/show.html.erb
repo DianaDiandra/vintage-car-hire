@@ -1,11 +1,13 @@
 <div class="container">
-  <%= cl_image_tag @car.image.key, height: 300, width: 400, crop: :fill %>
+  <h4><%= @car.brand %></h4>
   <br>
-  <%= @car.brand %>
+  <%= cl_image_tag @car.image.key, height: 300, width: 400, crop: :fill %>
   <br>
   <%= @car.description %>
   <br>
   <%= @car.price %>
+  <br>
+  <%= @car.availability %>
   <br>
   <h6>Reviews:</h6>
   <ul class="list-group">
