@@ -68,8 +68,6 @@ cars.each do |car_attrs|
   end
 end
 
-Review.destroy_all
-
 puts "Creating reviews..."
 
 Car.all.each do |car|
