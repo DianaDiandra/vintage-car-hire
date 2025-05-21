@@ -7,12 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-#require 'faker'
+
+require 'faker'
 
 puts "Cleaning up database..."
 Review.destroy_all
-User.destroy_all
+Booking.destroy_all
 Car.destroy_all
+User.destroy_all
 puts "Cleared all users and cars."
 
 # Create a sample user
