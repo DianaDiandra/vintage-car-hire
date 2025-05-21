@@ -12,3 +12,7 @@
     </li>
   <% end %>
 </ul>
+
+<% if @car.image.attached? %>
+  <%= cl_image_tag(@car.image.key, width: 400, crop: :fill) %>
+<% end %>

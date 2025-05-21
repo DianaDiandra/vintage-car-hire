@@ -7,7 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-require 'faker'
+# require 'faker'
 
 puts "Cleaning up database..."
 Review.destroy_all
@@ -70,12 +70,12 @@ end
 
 puts "Creating reviews..."
 
-Car.all.each do |car|
-  rand(2..5).times do
-    Review.create!(
-      car: car,
-      comment: Faker::Lorem.sentence(word_count: 8),
-      rating: rand(3..5)
-    )
-  end
-end
+# Car.all.each do |car|
+#   rand(2..5).times do
+#     Review.create!(
+#       car: car,
+#       comment: Faker::Lorem.sentence(word_count: 8),
+#       rating: rand(3..5)
+#     )
+#   end
+# end

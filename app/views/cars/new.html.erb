@@ -1,14 +1,14 @@
 <h1>List Your Car</h1>
-<%= simple_form_for @car do |f| %>
+
+<%= simple_form_for @car, html: { multipart: true } do |f| %>
   <%= f.input :brand %>
-
-
   <%= f.input :description %>
-
-
   <%= f.input :price %>
-
   <%= f.input :availability %>
 
-  <%= f.submit "List Car" %>
+  <%= f.input :image, as: :file,
+    label: 'Car Photo',
+    hint: 'Upload a clear photo of your vintage car (JPEG/PNG)' %>
+
+  <%= f.submit "List Car", class: "btn btn-primary" %>
 <% end %>
