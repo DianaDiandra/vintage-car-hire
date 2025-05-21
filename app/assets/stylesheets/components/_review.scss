@@ -1,0 +1,13 @@
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  scroll-behavior: smooth;
+}
+
+.review-card {
+  flex-shrink: 0;
+  min-width: 300px;
+  max-width: 300px;
+}
