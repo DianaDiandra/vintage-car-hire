@@ -21,7 +21,7 @@ class CarsController < ApplicationController
   def create
     @car = current_user.cars.new(car_params) # Ensures car is associated to the user immediately
     if @car.save
-      redirect_to cars_path, notice: 'Car listed!' # Will redirect to car page if successfull
+      redirect_to @car, notice: 'Car listed!' # Will redirect to car page if successfull
     else
       render :new, status: :unprocessable_entity # Will show form if it fails
     end

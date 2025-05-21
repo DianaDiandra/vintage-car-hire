@@ -1,3 +1,22 @@
+<h6>Reviews:</h6>
+<ul class="list-group">
+  <% @car.reviews.each do |review| %>
+    <li class="list-group-item">
+      <strong><%= review.comment %></strong><br>
+      <% review.rating.to_i.times do %>
+        <i class="fas fa-star text-warning"></i>
+      <% end %>
+      <% (5 - review.rating.to_i).times do %>
+        <i class="far fa-star text-warning"></i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<% if @car.image.attached? %>
+  <%= cl_image_tag(@car.image.key, width: 400, crop: :fill) %>
+<% end %>
+
 <div class="container">
   <%= cl_image_tag @car.image.key, height: 300, width: 400, crop: :fill %>
   <br>
