@@ -71,7 +71,7 @@ end
 puts "Creating reviews..."
 
 Car.all.each do |car|
-  rand(2..5).times do
+  rand(5..10).times do
     Review.create!(
       car: car,
       comment: Faker::Lorem.sentence(word_count: 8),
