@@ -11,8 +11,9 @@
 
 puts "Cleaning up database..."
 Review.destroy_all
-User.destroy_all
+Booking.destroy_all
 Car.destroy_all
+User.destroy_all
 puts "Cleared all users and cars."
 
 # Create a sample user
