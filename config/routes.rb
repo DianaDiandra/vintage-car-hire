@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :cars, only: [:index, :new, :create] do
     resources :bookings, only: [:index, :create, :update]
+    resources :reviews, only: [:create]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
