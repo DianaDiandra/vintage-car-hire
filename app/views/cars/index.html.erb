@@ -1,8 +1,20 @@
-<h1>Vintage Car Hire</h1>
-<% @cars.each do |car| %>
-  <div>
-    <h2><%= car.brand %></h2>
-    <p><%= car.description %></p>
-    <p>Price: $<%= car.price %>/day</p>
+<div class="header-container">
+  <h1>Vintage Car Hire</h1>
+</div>
+
+<div class="container w-75">
+  <div class="cards">
+    <% @cars.each do |car| %>
+      <div class="card-category"
+        style="<%= car.image.attached? ? 'background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' + url_for(car.image) + ')' : '' %>;">
+      </div>
+
+      <div class="card-details">
+        <h1 class="card-title"><%= link_to car.brand, car_path(car) %></h1>
+        <p class="card-text"><%= car.description %></p>
+        <p class="card-text">Price: $<%= car.price %>/day</p>
+      </div>
+
+    <% end %>
   </div>
-<% end %>
+</div>
