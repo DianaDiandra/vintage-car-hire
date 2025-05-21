@@ -1,4 +1,4 @@
-<h2>Your Bookings for <%= @car.brand %></h2>
+<%# <!--<h2>Your Bookings for <%= @car.brand%>
 
 <% @bookings.each do |booking| %>
   <div class="booking" style="border: 1px solid #ddd; padding: 10px; margin: 10px;">
@@ -7,8 +7,8 @@
       to
       <%= booking.end_date.strftime("%B %d, %Y") %>
     </p>
-    <%= link_to "Edit Dates", edit_car_booking_path(@car, booking), class: "btn" %>
+    <%= link_to "Edit Dates", edit_car_booking_path(booking.car, booking), class: "btn" %>
   </div>
 <% end %>
 
-<%= link_to "Back to Car", car_path(@car) %>
+<%# <!--<%= link_to "Back to Car", car_path(@car) %>

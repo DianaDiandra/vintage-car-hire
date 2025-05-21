@@ -1,21 +1,22 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_car
+  before_action :set_car, except: :index
 
   def index
-   @bookings = @car.bookings.where(user: current_user)
+   @bookings = Booking.where(user: current_user)
    @booking = Booking.new
   end
 
   def new
-    @booking = @car.bookings.new
+    @booking = Booking.new
   end
 
   def create
-    @booking = @car.bookings.new(booking_params)
+    @booking = Booking.new(booking_params)
+    @booking.car = @car
     @booking.user = current_user
     if @booking.save
-      redirect_to car_bookings_path(@car), notice: 'Booking added successfully!'
+      redirect_to bookings_path, notice: 'Booking added successfully!'
     else
       render :new, status: :unprocessable_entity
     end
