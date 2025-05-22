@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<div class="container">
-  <div class="row"></div>
-  <div class="row"></div>
-  <div class="row"></div>
-</div>
-
-
-<div class="col-sm-6">
-=======
 <div class="home-card mt-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("nqnheqsnmfqeomjqcgkv", width: 1200, height: 400, crop: :fill, gravity: :center) %>)">
 <div class="text-center p-5">
     <h1 class="display-4">Welcome to Vintage Car Hire!</h1>
@@ -20,11 +7,10 @@
 
 <div class="top-rated-reviews mt-5">
   <h3 class="text-center mb-4 text-black">Top Rated Reviews</h3>
-
   <div class="scroll-container">
     <% @five_star_reviews.each do |review| %>
-      <div class="review-card">
-        <div class="card bg-dark text-white h-100 shadow-sm">
+      <div class="home-page-review-card">
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= review.car.brand %> <%= review.car.description %></h5>
             <p class="card-text"><%= review.comment %></p>
@@ -38,5 +24,4 @@
       </div>
     <% end %>
   </div>
->>>>>>> 1bf5316de25f29f1f51cc0f6af9b351be98d83dd
 </div>
