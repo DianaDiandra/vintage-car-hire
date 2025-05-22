@@ -70,7 +70,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_22_152554) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "car_id", null: false
+    t.bigint "user_id", null: false
     t.index ["car_id"], name: "index_reviews_on_car_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,4 +94,5 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_22_152554) do
   add_foreign_key "bookings", "users"
   add_foreign_key "cars", "users"
   add_foreign_key "reviews", "cars"
+  add_foreign_key "reviews", "users"
 end
