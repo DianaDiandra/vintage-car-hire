@@ -69,6 +69,10 @@ a {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: grid;
   grid-gap: 16px;
+  h3 {
+    margin: 0;
+    color: #c39b77;
+  }
 }
 
 .car-thumbnail {
