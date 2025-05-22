@@ -5,6 +5,8 @@ class BookingsController < ApplicationController
   def index
    @bookings = Booking.where(user: current_user)
    @booking = Booking.new
+   @bookings = Booking.includes(:car) # Ensures each booking comes with its car data
+
   end
 
   def new

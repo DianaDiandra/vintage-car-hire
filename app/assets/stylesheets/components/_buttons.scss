@@ -1,12 +1,36 @@
-.custom-button {
-  background-color: #4084e9;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
+// .custom-button {
+//   background-color: #4084e9;
+//   color: #fff;
+//   padding: 12px 24px;
+//   border-radius: 6px;
+//   text-decoration: none;
+//   transition: background-color 0.3s ease;
+// }
 
-.custom-button:hover {
-  background-color: #193572;
+// .custom-button:hover {
+//   background-color: #193572;
+// }
+
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    background-color: #004085;
+    transform: scale(0.95);
+  }
 }
