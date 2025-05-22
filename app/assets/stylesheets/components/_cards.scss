@@ -12,12 +12,6 @@
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-a {
-  text-decoration: none;
-}
-
-
-
 .card-category {
   width: 100%;
   aspect-ratio: 16/9; // Ensures consistent image sizing
@@ -58,31 +52,6 @@ a {
   align-items: center;
 }
 
-.booking-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-.booking {
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: grid;
-  grid-gap: 16px;
-  h3 {
-    margin: 0;
-    color: #c39b77;
-  }
-}
-
-.car-thumbnail {
-  width: 100%;
-  height: 400px;
-  padding: 20px;
-  margin-bottom: 40px;
-  background-size: cover;
-  background-position: center;
-}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
