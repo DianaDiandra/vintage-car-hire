@@ -1,14 +1,32 @@
-<h1>List Your Car</h1>
+<h1 class="text-center" style="margin-bottom: 40px;">List Your Car</h1>
 
-<%= simple_form_for @car, html: { multipart: true } do |f| %>
-  <%= f.input :brand %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :availability %>
+<%= simple_form_for @car, html: { multipart: true, class: "container" } do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :brand %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :price %>
+    </div>
+  </div>
 
-  <%= f.input :image, as: :file,
-    label: 'Car Photo',
-    hint: 'Upload a clear photo of your vintage car (JPEG/PNG)' %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.input :description %>
+    </div>
+  </div>
 
-  <%= f.submit "List Car", class: "button" %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :availability %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :image, as: :file, label: 'Car Photo',
+        hint: 'Upload a clear photo of your vintage car (JPEG/PNG)' %>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <%= f.submit "List Car", class: "button mt-3" %>
+  </div>
 <% end %>
