@@ -28,6 +28,7 @@ require 'open-uri'
 cars = [
   {
     brand: "Vintage Mustang",
+    address: "SW3 5UU, London",
     description: <<~DESC,
     Experience the raw power of American automotive history with this meticulously maintained 1969 Ford Mustang Boss 302. \n\n
     - 5.0L V8 engine producing 450HP with original 4-speed manual transmission
@@ -45,6 +46,7 @@ cars = [
   },
   {
     brand: "Vintage Porsche",
+    address: "SW3 5UU, London",
     description: <<~DESC,
     Own the road in this iconic 1973 Porsche 911 Carrera RS 2.7. \n\n
     - 2.7L air-cooled flat-six engine with 210HP
@@ -62,6 +64,7 @@ cars = [
   },
   {
     brand: "Rolls Royce Phantom",
+    address: "M1 1AD, Manchester",
     description: <<~DESC,
     Travel in ultimate luxury with this 1965 Rolls-Royce Phantom V. \n\n
     - 6.2L V8 engine with automatic transmission
@@ -79,6 +82,7 @@ cars = [
   },
   {
     brand: "Vintage Ferrari",
+    address: "B75 7AX, Birmangham",
     description: <<~DESC,
     Command attention in this 1989 Ferrari Testarossa. \n\n
     - 4.9L flat-12 engine producing 390HP
@@ -96,6 +100,7 @@ cars = [
   },
   {
     brand: "Vintage Lamborghini",
+    address: "B90 4GT, Birmangham",
     description: <<~DESC,
     Unleash the bull with this 1972 Lamborghini Miura SV. \n\n
     - 3.9L V12 engine producing 385HP
