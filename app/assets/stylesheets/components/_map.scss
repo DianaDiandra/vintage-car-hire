@@ -1,0 +1,15 @@
+.map-container {
+  min-height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  .mapboxgl-canvas-container {
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+// Fix for Turbo previews
+[data-turbo-preview] .map-container {
+  display: none;
+}
