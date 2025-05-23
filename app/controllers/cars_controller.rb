@@ -17,11 +17,12 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @reviews = @car.reviews
     @review = Review.new
+    @booking = Booking.new
   end
 
   def new
     @car = current_user.cars.new
-
+    @booking = Booking.new
     # Current user gets pre-assigned a car
   end
 
