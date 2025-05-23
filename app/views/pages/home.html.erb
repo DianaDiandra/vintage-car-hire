@@ -1,4 +1,9 @@
-<div class="home-card mt-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("nqnheqsnmfqeomjqcgkv", width: 1200, height: 400, crop: :fill, gravity: :center) %>)">
+<div class="home-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path("home.png") %>); width:100dvw;height:100%;background-size:cover;background-position:center;">
+  <div class="overlay"></div>
+  <div class="home-card-content">
+    <h1 class="text-center text-white">Vintage Car Hire</h1>
+    <p class="text-center text-white">Experience the elegance of vintage cars.</p>
+  </div>
 <div class="text-center p-5">
     <h1 class="display-4">Welcome to Vintage Car Hire!</h1>
     <%= link_to "Find Your Perfect Car...", cars_path, class: "button" %>
@@ -12,7 +17,8 @@
       <div class="home-page-review-card">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"><%= review.car.brand %> <%= review.car.description %></h5>
+            <h5 class="card-title"><%= review.car.brand %><h5>
+            <h5 class="card-title"><%= truncate(review.car.description, length: 200) %></h5>
             <p class="card-text"><%= review.comment %></p>
             <div class="mt-2">
               <% 5.times do %>
