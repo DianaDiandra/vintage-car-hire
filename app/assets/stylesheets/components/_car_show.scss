@@ -1,0 +1,73 @@
+.car-show-container {
+  .car-image {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  // Pricing Card
+  .pricing-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  // Sticky Map
+  .sticky-map {
+    position: sticky;
+    top: 20px;
+    transition: all 0.3s ease;
+
+    .map-container {
+      height: 75vh;
+      border: 3px solid #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      }
+    }
+  }
+
+  // Location Card
+  .location-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  // Reviews Section
+  .review-card {
+    transition: transform 0.2s;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 8px;
+    padding: 1.5rem;
+
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
+  .car-description {
+    white-space: pre-wrap;  // Preserve line breaks
+    line-height: 1.6;
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+}

@@ -17,6 +17,15 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @reviews = @car.reviews
     @review = Review.new
+    @average_rating = @car.reviews.average(:rating).to_f.round(1)
+
+    @markers = [{
+      lat: @car.latitude,
+      lng: @car.longitude,
+      info_window_html: render_to_string(partial: "cars/info_window", locals: { car: @car }),
+      marker_html: render_to_string(partial: "cars/marker", locals: { car: @car })
+    }]
+
     @booking = Booking.new
   end
 
