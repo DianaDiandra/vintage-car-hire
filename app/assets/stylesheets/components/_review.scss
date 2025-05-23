@@ -11,3 +11,38 @@
   min-width: 300px;
   max-width: 300px;
 }
+
+.home-page-review-card {
+  .card{
+  background-color: #381c1c;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-size: auto;
+  height: 300px;
+  width: 200px;
+  text-size-adjust:inherit;
+
+  }
+  .card-body{
+  font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 28px;
+  font-feature-settings: 'ss01';
+  overflow-x: hidden;
+  background-color: #f6f7f7
+  }
+  .card-title{
+  background-blend-mode: lighten;
+  text-align: justify;
+  font-size: 0.50rem;
+  color: #381c1c;
+  }
+  .card-text{
+  line-height: 1.4;
+  font-size: 0.50rem;
+  color: #413e3e;
+  }
+
+}

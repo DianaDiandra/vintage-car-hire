@@ -143,7 +143,7 @@ Car.all.each do |car|
   5.times do
     Review.create!(
       car: car,
-      user_id: user.id,
+      user: user,
       comment: Faker::Lorem.paragraph(sentence_count: 3),
       rating: rand(4..5)
     )
