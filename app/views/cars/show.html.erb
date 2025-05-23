@@ -1,117 +1,161 @@
 <div class="container mt-5">
-  <div class="row">
-    <div class="col-md-6 mb-4">
-      <div class="card shadow-sm">
-        <%= cl_image_tag @car.image.key, class: "card-img-top", height: 400, width: 600, crop: :fill %>
-        <div class="card-body">
-          <h1 class="card-title display-4"><%= @car.brand %></h1>
-          <p class="lead text-muted"><%= @car.description %></p>
-          <div class="d-flex justify-content-between align-items-center">
-            <h4 class="text-primary">£<%= @car.price %>/day</h4>
-            <%= link_to "Book Now", "#", class: "btn btn-lg btn-success" %>
+  <div class="row g-5">
+    <!-- Left Column (60%) -->
+    <div class="col-lg-7">
+      <!-- Hero Image Section -->
+      <div class="card border-0 shadow-lg overflow-hidden mb-5 hover-zoom">
+        <%= cl_image_tag @car.image.key,
+          class: "card-img-top",
+          style: "height: 600px; object-fit: cover; object-position: center;",
+          alt: @car.brand
+        %>
+        <div class="position-absolute top-0 end-0 m-4">
+          <span class="badge bg-success fs-6 p-3 shadow-sm">
+            <%= @car.availability ? 'Available Now' : 'Currently Booked' %>
+          </span>
+        </div>
+      </div>
+
+      <!-- Vehicle Details -->
+      <div class="mb-5">
+        <h1 class="display-4 fw-bold mb-4"><%= @car.brand %></h1>
+        <p class="lead text-muted fs-5 mb-5"><%= simple_format(@car.description) %></p>
+
+        <!-- Insurance Banner -->
+        <div class="alert alert-success border-0 shadow-sm d-flex align-items-center mb-5">
+          <i class="fas fa-shield-alt fa-3x me-4 text-success"></i>
+          <div>
+            <h5 class="mb-1">Premium Protection Included</h5>
+            <p class="mb-0">Full insurance coverage · 24/7 roadside assistance</p>
           </div>
         </div>
       </div>
 
-      <div class="mt-5">
-        <h3 class="mb-4 border-bottom pb-2">
-          <i class="fas fa-comments"></i>
-          Customer Reviews
+      <!-- Reviews Section -->
+      <div class="mb-5">
+        <h3 class="mb-4 border-bottom pb-3">
+          <i class="fas fa-comments me-2"></i>
+          Customer Experiences
           <span class="badge bg-primary"><%= @car.reviews.count %></span>
         </h3>
 
-        <div class="list-group">
+        <div class="row g-4">
           <% @car.reviews.each do |review| %>
-            <div class="list-group-item mb-3 rounded shadow-sm">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <% review.rating.times do %>
-                    <i class="fas fa-star text-warning"></i>
-                  <% end %>
-                  <% (5 - review.rating).times do %>
-                    <i class="far fa-star text-warning"></i>
-                  <% end %>
+            <div class="col-12">
+              <div class="review-card card border-0 shadow-sm">
+                <div class="card-body">
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="avatar-placeholder rounded-circle bg-light d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px">
+                      <i class="fas fa-user text-muted"></i>
+                    </div>
+                    <div>
+                      <h6 class="mb-0">Verified Renter</h6>
+                      <small class="text-muted"><%= time_ago_in_words(review.created_at) %> ago</small>
+                    </div>
+                  </div>
+                  <div class="rating-stars mb-3">
+                    <% review.rating.times do %>
+                      <i class="fas fa-star text-warning"></i>
+                    <% end %>
+                    <% (5 - review.rating).times do %>
+                      <i class="far fa-star text-warning"></i>
+                    <% end %>
+                  </div>
+                  <p class="mb-0 fs-5"><%= review.comment %></p>
                 </div>
-                <small class="text-muted"><%= time_ago_in_words(review.created_at) %> ago</small>
               </div>
-              <p class="mt-2 mb-0"><%= review.comment %></p>
             </div>
           <% end %>
         </div>
       </div>
     </div>
 
-    <div class="col-md-6">
+    <!-- Right Column (40%) -->
+    <div class="col-lg-5">
       <div class="sticky-top" style="top: 20px;">
-        <div class="map-container rounded-3 shadow-lg"
-             data-controller="map"
-             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-             data-map-markers-value="<%= @markers.to_json %>"
-             style="height: 600px; width: 100%;">
+        <!-- Booking Card -->
+        <div class="card border-0 shadow-lg mb-4 booking-card">
+          <div class="card-header bg-dark text-white py-4">
+            <h3 class="mb-0">Instant Booking</h3>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-4">
+              <span class="h1 fw-bold text-primary me-2">£<%= @car.price %></span>
+              <span class="text-muted">/day + VAT</span>
+            </div>
+
+            <%= form_with model: [@car, @booking], data: { controller: 'datepicker' } do |f| %>
+              <% if @booking.errors.any? %>
+                <div class="alert alert-danger mb-4">
+                  <h5 class="alert-heading"><%= pluralize(@booking.errors.count, "issue") %> found:</h5>
+                  <ul class="mb-0">
+                    <% @booking.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+              <div class="mb-4">
+                <%= f.label :start_date, "Pick-up Date", class: "form-label fw-bold" %>
+                <%= f.text_field :start_date,
+                              class: "form-control py-3",
+                              placeholder: "Select start date",
+                              data: { datepicker_target: "startDate" } %>
+              </div>
+
+              <div class="mb-4">
+                <%= f.label :end_date, "Return Date", class: "form-label fw-bold" %>
+                <%= f.text_field :end_date,
+                              class: "form-control py-3",
+                              placeholder: "Select end date",
+                              data: { datepicker_target: "endDate" } %>
+              </div>
+
+              <%= f.submit "Book Now", class: "btn btn-primary w-100 btn-lg py-3 fw-bold" %>
+            <% end %>
+          </div>
         </div>
 
-        <div class="mt-4 p-3 bg-light rounded">
-          <h5><i class="fas fa-map-marker-alt text-danger"></i> Pickup Location</h5>
-          <p class="mb-0"><%= @car.address %></p>
-          <small class="text-muted">Exact address provided after booking</small>
+        <!-- Pickup Location -->
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title mb-3">
+              <i class="fas fa-map-marker-alt text-danger me-2"></i>
+              Pickup Location
+            </h5>
+            <div class="d-flex align-items-center">
+              <div class="me-3">
+                <i class="fas fa-car fa-2x text-muted"></i>
+              </div>
+              <div>
+                <p class="mb-1 fw-bold"><%= @car.address %></p>
+                <small class="text-muted">Exact address provided after booking</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Map Section -->
+    <div class="col-12 mt-5">
+      <div class="card border-0 shadow-lg">
+        <div class="card-header bg-dark text-white py-3">
+          <h5 class="mb-0">
+            <i class="fas fa-map-marked-alt me-2"></i>
+            Vehicle Location
+          </h5>
+        </div>
+        <div class="card-body p-0">
+          <div class="map-container rounded-bottom"
+              data-controller="map"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+              data-map-markers-value="<%= @markers.to_json %>"
+              style="height: 500px;">
+          </div>
         </div>
       </div>
     </div>
   </div>
-<div class="container">
-  <h3><%= @car.brand %></h3>
-  <br>
-  <%= cl_image_tag @car.image.key, height: 300, width: 400, crop: :fill %>
-  <br>
-  <%= @car.description %>
-  <br>
-  <%= @car.price %>
-  <br>
-  <% if @car.availability == true %>
-    <p>Available</p>
-  <% else %>
-    <p>Not available</p>
-  <% end %>
-
-  <h3>Book <%= @car.brand %></h3>
-
-  <%= form_with model: [@car, @booking] do |f| %>
-    <% if @booking.errors.any? %>
-      <div class="errors" style="color: red;">
-        <h3><%= pluralize(@booking.errors.count, "error") %> occurred:</h3>
-        <ul>
-          <% @booking.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :start_date %>
-      <%= f.date_field :start_date, min: Date.today %>
-    </div>
-
-    <div class="field">
-      <%= f.label :end_date %>
-      <%= f.date_field :end_date, min: Date.tomorrow %>
-    </div>
-    <br>
-    <%= f.submit "Confirm Booking"%>
-  <% end %>
-  <br>
-  <h3>Reviews:</h3>
-  <ul class="list-group">
-    <% @car.reviews.each do |review| %>
-      <li class="list-group-item">
-        <strong><%= review.comment %></strong><br>
-        <% review.rating.to_i.times do %>
-          <i class="fas fa-star text-warning"></i>
-        <% end %>
-        <% (5 - review.rating.to_i).times do %>
-          <i class="far fa-star text-warning"></i>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
 </div>
