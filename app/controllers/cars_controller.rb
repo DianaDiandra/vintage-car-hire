@@ -4,17 +4,25 @@ class CarsController < ApplicationController
   def index
     @cars = Car.all
     # This collects all car records from db and stores in @car
+    @markers = @cars.geocoded.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { car: car })
+      }
+    end
   end
 
   def show
     @car = Car.find(params[:id])
     @reviews = @car.reviews
     @review = Review.new
+    @booking = Booking.new
   end
 
   def new
     @car = current_user.cars.new
-
+    @booking = Booking.new
     # Current user gets pre-assigned a car
   end
 
