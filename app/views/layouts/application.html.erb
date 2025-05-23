@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": Rails.env.production? ? "reload" : "" %>
     <%= javascript_importmap_tags %>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css " rel="stylesheet">
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css " />
   </head>
 
   <body>
@@ -24,6 +26,8 @@
     <%= render "shared/navbar" %>
     <div class="layout-wrapper">
       <%= yield %>
+      <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js "></script>
+      <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js "></script>
       <footer>
         <%= render "shared/footer" %>
       </footer>
