@@ -6,11 +6,6 @@
   text-align: center;
   min-height: 50px;
 }
-.header-container h1 {
-  font-size: 2.5rem;
-  color: #333;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
 
 .card-category {
   width: 100%;
@@ -27,13 +22,8 @@
 
 .card-title {
   text-decoration: none;
-  color: red;
 }
 
-.card-text {
-  color: black;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
 
 .cards {
   display: flex;
