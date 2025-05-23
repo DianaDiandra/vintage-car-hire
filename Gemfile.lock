@@ -166,7 +166,7 @@ GEM
       railties (>= 7.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.2.3)
+    importmap-rails (2.1.0)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
@@ -409,7 +409,7 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   geocoder
   hotwire-livereload
-  importmap-rails (~> 1.2.3)
+  importmap-rails (~> 2.1.0)
   jbuilder
   mapbox-gl-rails
   pg (~> 1.1)
